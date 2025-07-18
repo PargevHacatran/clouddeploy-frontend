@@ -1,16 +1,18 @@
-"use client";
-
 import "./globals.css";
+
+import Head from "next/head";
+
+import StoreProvider from "./StoreProvider";
 
 interface ILandingLayout {
   children: React.ReactNode;
   title: string;
 }
 
-export default function LandingLayout({ children, title }:ILandingLayout) {
+export default function AppLayout({ children, title }:ILandingLayout) {
   return (
-    <html lang="ru">
-      <head>
+    <>
+      <Head>
         {/* Orbitron */}
           
         <link rel="preconnect" href="https://fonts.googleapis.com" />
@@ -24,11 +26,13 @@ export default function LandingLayout({ children, title }:ILandingLayout) {
         <link href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=Orbitron:wght@400..900&display=swap" rel="stylesheet" />
 
         <title>{ title }</title>
-      </head>
-
-      <body className="antialiased">
-        { children }
-      </body>
-    </html>
+      </Head>
+      
+      <StoreProvider>
+        <div className="antialiased">
+          { children }
+        </div>
+      </StoreProvider>
+    </>
   );
 }
