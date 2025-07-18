@@ -1,26 +1,91 @@
 @import "tailwindcss";
 
 :root {
-  --background: #ffffff;
-  --foreground: #171717;
+  --background: #0a0a0a;
+  --foreground: #fff;
+
+  --color-grey: #bdbdbd;
+
+  --color-white-5: #ffffff0d;
+  --color-white-10: #ffffff1a;
+  --color-white-12: #ffffff1f;
+  --color-white-15: #ffffff26;
+  --color-white-40: #ffffff66;
+  --color-white-60: #ffffff99;
+  --color-white-80: #ffffffcc;
+  --color-white: #ffffff;
+
+  --color-light-black: #151515;
+  --color-black: #000000;
+  --color-black-amber: #06070c;
+
+  --main-color: #7864F4;
+
+  --color-red: #ff00001a;
 }
 
-@theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
-}
-
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
+* {
+  transition: 0.3s all ease;
 }
 
 body {
   background: var(--background);
   color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  font-family: "Inter", sans-serif;
+  overflow-x: hidden;
+}
+
+button {
+  cursor: pointer;
+}
+
+.text-gradient {
+  background-image: linear-gradient(-45deg, #D3A6FF 2%,  var(--main-color) 100%);
+  background-color: var(--main-color);
+
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.radial-gradient {
+  background: radial-gradient(50% 50% at 0% 0%, rgba(120, 100, 244, 0.5) 0%, rgba(0, 3, 15, 0.4) 100%);
+}
+
+.box-shadow {
+  box-shadow: -15px -30px 250px 0 rgba(120, 100, 244, 0.25);
+}
+
+.password-wrapper:focus-within {
+  border-color: var(--color-white-40);
+}
+
+.spinner {
+  animation: rotate 2s linear infinite;
+}
+
+.spinner .path {
+  stroke: #4285F4;
+  stroke-linecap: round;
+  animation: dash 1.5s ease-in-out infinite;
+}
+
+@keyframes rotate {
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+@keyframes dash {
+  0% {
+    stroke-dasharray: 1, 150;
+    stroke-dashoffset: 0;
+  }
+  50% {
+    stroke-dasharray: 90, 150;
+    stroke-dashoffset: -35;
+  }
+  100% {
+    stroke-dasharray: 90, 150;
+    stroke-dashoffset: -124;
+  }
 }
