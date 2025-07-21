@@ -2,10 +2,10 @@
 
 import { useEffect, useState } from "react";
 
-import { authFormInputs, authFormValues, submitButtonContent, AuthValuesInterfaces } from "@/pages/auth/utils/authForm";
-import { renderFieldsStrategies, validationStrategies } from "@/pages/auth/utils/authStrategies";
+import { authFormInputs, authFormValues, submitButtonContent, AuthValuesInterfaces, ISignUpValues, ILoginValues, IResetValues, ICodeValues, ICreateValues } from "@/pages/auth/utils/authForm";
+import { renderFieldsStrategies, sendFormStrategies, validationStrategies } from "@/pages/auth/utils/authStrategies";
 
-import type { RenderFieldsStrategiesType } from "@/pages/auth/utils/authStrategies";
+import type { RenderFieldsStrategiesType, SendFormStrategiesType } from "@/pages/auth/utils/authStrategies";
 
 import { IState } from "@/app/store";
 
@@ -16,7 +16,7 @@ import { AuthCaptcha } from "@/pages/auth/ui/AuthCaptcha";
 import { Form, Formik } from "formik";
 
 import { useDispatch, useSelector } from "react-redux";
-import { setAuthTabValue } from "@/features/lib/redux/authRoute/authRouteSlice";
+import { setAuthTabValue, setCodeValue, setResetedEmailValue } from "@/features/lib/redux/authRoute/authRouteSlice";
 
 type AuthFormInputsType = typeof authFormInputs;
 type SubmitButtonContentType = typeof submitButtonContent;
@@ -38,11 +38,82 @@ const PASSWORD_AREA_CLASSNAME = "flex flex-1 bg-[var(--color-white-10)] password
 
 export const AuthForm = () => {
     const currentTab: AuthTabsType = useSelector((state: IState) => state.authRoute.tab);
+    const verifyCode = useSelector((state:IState) => state.authRoute.code);
+    const resetedEmail = useSelector((state:IState) => state.authRoute.resetedEmail);
+    
     const dispatch = useDispatch();
 
     const [initialValues, setInitialValues] = useState(authFormValues[currentTab]);
 
     useEffect(() => setInitialValues(authFormValues[currentTab]), [currentTab]);
+
+    const convertValuesToType = (currentTab:AuthTabsType, values: typeof AuthValuesInterfaces[AuthTabsType]) => {
+        switch (currentTab) {
+            case "signup": return values as ISignUpValues;
+            case "login": return values as ILoginValues;
+            case "reset": return values as IResetValues;
+            case "code": return values as ICodeValues;
+            case "create": return values as ICreateValues;
+            default: throw new Error(`Unknown tab type: ${currentTab}`);
+        }
+    }
+
+    const handleSendRequest = async (values: typeof AuthValuesInterfaces[AuthTabsType]) => {
+        const tab = currentTab as AuthTabsType;
+        const handler = sendFormStrategies[currentTab as AuthTabsType];
+
+        try {
+            switch (tab) {
+                case 'reset':
+                    if ("email" in values) {
+                        await (handler as SendFormStrategiesType['reset'])(
+                            values as typeof AuthValuesInterfaces["reset"],
+                            (code:string, email:string) => {
+                                dispatch(setResetedEmailValue(email));
+                                dispatch(setCodeValue(code));
+                            }
+                        );
+
+                        dispatch(setAuthTabValue('code'));
+                    }
+
+                    break;
+            
+                case 'code':
+                    if ("code" in values) {
+                        await (handler as SendFormStrategiesType['code'])(values, verifyCode);
+                        
+                        dispatch(setAuthTabValue('create'));
+                    }
+
+                    break;
+            
+                case 'create':
+                    if ("password" in values && "confirmPassword" in values) {    
+                        await (handler as SendFormStrategiesType['create'])(values, resetedEmail);
+                    }
+
+                    break;
+            
+                case "login":
+                    if ("email" in values && "password" in values) {
+                        await (handler as SendFormStrategiesType['login'])(values);
+                    }
+
+                    break;
+                case "signup":
+                default:
+                    if ("email" in values && "name" && "lastName" in values && "username" in values && "jobTitle" && "phone" && "password") {
+                        await (handler as SendFormStrategiesType['signup'])(values);
+                    }
+
+                    break;
+        }
+        
+        } catch (error) {
+            console.error('Auth error:', error);
+        }
+    }
 
     return (
         <div className="w-[540px] mt-[20px]">
@@ -53,27 +124,15 @@ export const AuthForm = () => {
                     const errors: Record<string, string> = {};
                     const strategy = validationStrategies[currentTab];
 
-                    return strategy ? strategy(values, errors) : {};
+                    if (strategy) {
+                        const typedValues = convertValuesToType(currentTab, values)
+                        
+                        return strategy(typedValues, errors)
+                    }
                 }}
                 validateOnBlur={false}
                 validateOnChange={false}
-                onSubmit={() => {
-                    switch (currentTab) {
-                        case "login":
-                            break;
-                        case "reset":
-                            dispatch(setAuthTabValue("code"));
-                            break;
-                        case "code":
-                            dispatch(setAuthTabValue("create"));
-                            break;
-                        case "create":
-                            break;
-                        case "signup":
-                        default:
-                            break;
-                    }
-                }}
+                onSubmit={() => {}}
             >
                 {({
                     values,
@@ -94,7 +153,7 @@ export const AuthForm = () => {
                                     {
                                         inputsRowList.map((inputItem: IInputItem, itemIndex) => {
                                             const currentErrors = errors[inputItem.name as keyof typeof errors];
-                                            const CurrentInput = renderFieldsStrategies[inputItem.name as keyof RenderFieldsStrategiesType] ?? renderFieldsStrategies["input"];
+                                            const CurrentInput = renderFieldsStrategies[inputItem.type as keyof RenderFieldsStrategiesType ] ?? renderFieldsStrategies["input"];
 
                                             const addictionalStyles = {
                                                 background: currentErrors ? "var(--color-red)" : "var(--color-white-10)",
@@ -153,7 +212,10 @@ export const AuthForm = () => {
                         <Button
                             className="py-[13px] px-[120px] bg-[var(--color-white)] text-[var(--color-black)] rounded-[8px]"
                             type="submit"
-                            onClick={() => handleSubmit()}
+                            onClick={() => {
+                                handleSubmit();
+                                handleSendRequest(values);
+                            }}
                         >
                             { submitButtonContent[currentTab as keyof SubmitButtonContentType] }
                         </Button>

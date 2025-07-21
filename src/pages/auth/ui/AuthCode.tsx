@@ -1,5 +1,7 @@
+import { IState } from "@/app/store";
 import { Input } from "@/shared/Input";
 import { ChangeEvent, KeyboardEvent, useEffect, useRef, useState } from "react";
+import { useSelector } from "react-redux";
 
 export interface IAuthCode {
     onChange: (e:ChangeEvent<HTMLInputElement>) => void;
@@ -12,7 +14,7 @@ export const AuthCode = ({ onChange, name, value, addictionalStyles }:IAuthCode)
     const [code, setCode] = useState<string[]>(Array(6).fill(""));
     const codeInputsRef = useRef<HTMLDivElement>(null);
     
-    const userEamil = "pargevhacatran1@gmail.com";
+    const resetedEmail = useSelector((state:IState) => state.authRoute.resetedEmail);
 
     useEffect(() => {
         if (value && value.length === code.length) {
@@ -70,8 +72,8 @@ export const AuthCode = ({ onChange, name, value, addictionalStyles }:IAuthCode)
 
     const hiddenUserEmail = (userEmail:string) => {
         try {
-            if (userEamil) {
-                const hiddenSubstring = userEamil.split("@")[0].slice(3);
+            if (resetedEmail) {
+                const hiddenSubstring = resetedEmail.split("@")[0].slice(3);
                 const replacedHiddenPart = hiddenSubstring.replace(/[A-Za-z0-9]/g, "*");
             
                 return userEmail.replace(hiddenSubstring, replacedHiddenPart);
@@ -94,7 +96,7 @@ export const AuthCode = ({ onChange, name, value, addictionalStyles }:IAuthCode)
 
             <div className="flex flex-col gap-y-[10px] mb-[10px]">
                 <h2 className="font-semibold text-[20px] leading-[17px] text-[var(--color-white-80)]">Enter your verification code</h2>
-                <p className="text-[var(--color-white-40)]">We sent a 6-digit code to <span className="text-[var(--color-white-60)]">{ hiddenUserEmail(userEamil) }</span>. Confirm it belongs to you to keep your account secure</p>
+                <p className="text-[var(--color-white-40)]">We sent a 6-digit code to <span className="text-[var(--color-white-60)]">{ hiddenUserEmail(resetedEmail) }</span>. Confirm it belongs to you to keep your account secure</p>
             </div>
 
             <div 
