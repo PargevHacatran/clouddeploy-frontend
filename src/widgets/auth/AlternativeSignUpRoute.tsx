@@ -22,6 +22,7 @@ export const AlternativeSignUoRoute = () => {
                                 key={index}
                                 text={gitSystemItem.text}
                                 icon={gitSystemItem.icon}
+                                path={gitSystemItem.path}
                             />
                         ))
                     }

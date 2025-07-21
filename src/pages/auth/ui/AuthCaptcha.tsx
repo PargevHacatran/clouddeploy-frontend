@@ -3,6 +3,14 @@ import { MouseEvent } from "react";
 import { icons } from "../utils/icons";
 
 import { Checkbox } from "@/shared/Checkbox";
+import AuthRequests from "@/proccesses/auth/AuthRequests";
+
+interface IReCaptchaResponse {
+    score: number;
+    message: string;
+    code: number;
+    status: string;
+}
 
 export const AuthCaptcha = () => {
     const onClick = (e:MouseEvent) => {
@@ -10,11 +18,18 @@ export const AuthCaptcha = () => {
         
         window.grecaptcha.ready(() => {
             window.grecaptcha
-                .execute(process.env.SITE_RECAPTCHA ?? "", {
+                .execute("6Lf-E4QrAAAAAHpZjmihxgUx3mXZZyf9cY5acW17", {
                     action: 'submit'
                 })
-                .then((token:string) => {
-                    console.log(token)
+                .then(async (token:string) => {
+                   const authRequest = new AuthRequests();
+
+                   const recaptchaResponse = await authRequest.sendRequest<IReCaptchaResponse>({ token: token }, "/api/v1/auth/check-bot?");
+
+                   if (recaptchaResponse && recaptchaResponse.score < 0.35) throw new Error("User is a bot");
+                })
+                .catch((error) => {
+                    console.error(error)
                 });
         });
       }

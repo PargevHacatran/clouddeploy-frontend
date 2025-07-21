@@ -1,23 +1,35 @@
+import { AuthTabsType } from "@/widgets/auth/AuthForm";
+
 import { createSlice } from "@reduxjs/toolkit";
 import type { PayloadAction } from "@reduxjs/toolkit";
 
-type TabType = "signup" | "login" | "reset" | "code" | "create";
-
 export interface IAuthRouteState {
-    tab: TabType;
+    tab: AuthTabsType;
+    code: string;
+    resetedEmail: string;
 } 
 
-const initialState = { tab: "signup" } satisfies IAuthRouteState as IAuthRouteState;
+const initialState = { 
+    tab: "signup", 
+    code: "",
+    resetedEmail: ""
+} satisfies IAuthRouteState as IAuthRouteState;
 
 const authRouteSlice = createSlice({
     name: "authRoute",
     initialState,
     reducers: {
-        setAuthTabValue: (state, action:PayloadAction<TabType>) => {
+        setAuthTabValue: (state, action:PayloadAction<AuthTabsType>) => {
             state.tab = action.payload;
+        },
+        setCodeValue: (state, action:PayloadAction<string>) => {
+            state.code = action.payload;
+        },
+        setResetedEmailValue: (state, action:PayloadAction<string>) => {
+            state.resetedEmail = action.payload;
         }
     }
 });
 
-export const { setAuthTabValue } = authRouteSlice.actions;
+export const { setAuthTabValue, setCodeValue, setResetedEmailValue } = authRouteSlice.actions;
 export default authRouteSlice;

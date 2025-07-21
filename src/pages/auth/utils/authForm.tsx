@@ -1,4 +1,4 @@
-interface ISignUpValues {
+export interface ISignUpValues {
     name: string;
     lastName: string;
     phone: string;
@@ -8,21 +8,21 @@ interface ISignUpValues {
     password: string;
 }
 
-interface ILoginValues {
-    login: string;
+export interface ILoginValues {
+    email: string;
     password: string;
 }
 
-interface IResetValues {
-    login: string;
+export interface IResetValues {
+    email: string;
 }
 
-interface ICodeValues {
+export interface ICodeValues {
     code: string;
 }
 
-interface ICreateValues {
-    newPassword: string;
+export interface ICreateValues {
+    password: string;
     confirmPassword: string;
 }
 
@@ -95,8 +95,8 @@ export const authFormInputs = {
             {
                 labelTitle: "Login",
                 placeholder: "Enter your email",
-                name: "login",
-                type: "text",
+                name: "email",
+                type: "email",
             },
         ],
         [
@@ -114,7 +114,7 @@ export const authFormInputs = {
             {
                 labelTitle: "Login",
                 placeholder: "Enter your email",
-                name: "login",
+                name: "email",
                 type: "email",
             },
         ],
@@ -125,7 +125,7 @@ export const authFormInputs = {
                 labelTitle: "Code",
                 placeholder: "",
                 name: "code",
-                type: "text",
+                type: "code",
             },
         ],
     ],
@@ -135,7 +135,7 @@ export const authFormInputs = {
                 labelTitle: "New Password",
                 placeholder: "*********************",
                 visiblePassword: "Enter your new password",
-                name: "newPassword",
+                name: "password",
                 type: "password",
             },
         ],
@@ -162,17 +162,17 @@ export const authFormValues = {
         password: "",
     },
     "login": {
-        login: "",
+        email: "",
         password: ""
     },
     "reset": {
-        login: "",
+        email: "",
     },
     "code": {
         code: ""
     },
     "create": {
-        newPassword: "",
+        password: "",
         confirmPassword: ""
     }
 };
