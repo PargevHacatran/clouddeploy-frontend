@@ -1,5 +1,5 @@
 import * as punycode from "punycode";
-import * as tldData from "../../pages/auth/utils/tld.json";
+import * as tldData from "../pages/public/utils/tld.json";
 import { isValidPhoneNumber, validatePhoneNumberLength } from "libphonenumber-js";
 import { parsePhoneNumber } from "libphonenumber-js/min";
 

@@ -55,6 +55,10 @@ button {
   box-shadow: -15px -30px 250px 0 rgba(120, 100, 244, 0.25);
 }
 
+.text-box-shadow {
+  text-shadow: 0 4px 18px rgba(120, 100, 244, 0.85);
+}
+
 .password-wrapper:focus-within {
   border-color: var(--color-white-40);
 }
