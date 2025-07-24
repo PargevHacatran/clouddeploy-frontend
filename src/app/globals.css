@@ -10,6 +10,7 @@
   --color-white-10: #ffffff1a;
   --color-white-12: #ffffff1f;
   --color-white-15: #ffffff26;
+  --color-white-20: #ffffff33;
   --color-white-40: #ffffff66;
   --color-white-60: #ffffff99;
   --color-white-80: #ffffffcc;
@@ -52,7 +53,7 @@ button {
 }
 
 .reverse-radial-gradient {
-  background: radial-gradient(50% 50% at 0% 0%, rgba(0, 3, 15, 0.4) 0%, rgba(120, 100, 244, 0.5) 100%);
+  background: radial-gradient(circle at 100% 100%, rgba(120, 100, 244, 0.5) 0%, rgba(0, 3, 15, 0) 35%);
 }
 
 .box-shadow {
