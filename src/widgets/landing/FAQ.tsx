@@ -6,6 +6,7 @@ import { useState } from "react";
 
 export const FAQ = () => {
     const [openAccordionIndex, setOpenAccordionIndex] = useState<number | null>(null);
+
     const currentSectionTitle = sectionsTitles["faq"];
 
     const handleAccordionClick = (index: number) => {

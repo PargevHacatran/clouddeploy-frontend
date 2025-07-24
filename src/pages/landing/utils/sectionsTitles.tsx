@@ -21,9 +21,9 @@ export const sectionsTitles = {
         subtitle: ""
     },
     "reviews": {
-        suptitle: "Revviews",
-        title: "",
-        subtitle: "" 
+        suptitle: "Reviews",
+        title: "Reviews about CloudDeploy",
+        subtitle: "What do others think of our service ?" 
     },
     "faq": {
         suptitle: "FAQ",
