@@ -7,8 +7,8 @@ export interface ISectionTitlw {
 export const sectionsTitles = {
     "about": {
         suptitle: "About",
-        title: "",
-        subtitle: ""
+        title: "About CloudDeploy",
+        subtitle: "Some information about our service"
     },
     "advantures": {
         suptitle: "Advantures",

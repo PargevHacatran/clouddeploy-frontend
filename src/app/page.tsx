@@ -1,6 +1,7 @@
 "use client";
 
 import { Header } from "@/shared/Header";
+import { About } from "@/widgets/landing/about/About";
 import { Advantures } from "@/widgets/landing/advantures/Advantures";
 import { BetaTestForm } from "@/widgets/landing/betaTest/BetaTestForm";
 import { FAQ } from "@/widgets/landing/faq/FAQ";
@@ -19,8 +20,8 @@ export default function Landing () {
         return ( 
             <div className="px-[38px] flex flex-col items-center">
                 <Header />
+                <Main />
                 <div className="max-w-[1260px]">
-                  <Main />
                   <Advantures />
                   <Reviews />
                   <FAQ />
