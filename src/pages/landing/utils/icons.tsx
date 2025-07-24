@@ -1,3 +1,4 @@
 export const icons = {
-    faqRow: <svg width="50" height="28" viewBox="0 0 50 28" style={{ position: "absolute", width: "100%", height: "100%", top: 0, left: 0 }} fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M47.0001 3.00049L25.7072 24.2934C25.3166 24.6839 24.6835 24.6839 24.293 24.2934L3.00006 3.00049" stroke="white" stroke-width="6" stroke-linecap="round"/></svg>
+    faqRow: <svg width="50" height="28" viewBox="0 0 50 28" style={{ position: "absolute", width: "100%", height: "100%", top: 0, left: 0 }} fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M47.0001 3.00049L25.7072 24.2934C25.3166 24.6839 24.6835 24.6839 24.293 24.2934L3.00006 3.00049" stroke="white" stroke-width="6" stroke-linecap="round"/></svg>,
+    checkMark: <svg width="9" height="7" viewBox="0 0 9 7" style={{ position: "absolute", width: "100%", height: "100%", top: 0, left: 0 }} fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M1 3L3.46304 5.95565C3.48254 5.97905 3.51825 5.97973 3.53862 5.95709L8 1" stroke="white" stroke-opacity="0.4" stroke-width="2" stroke-linecap="round"/></svg>,
 }

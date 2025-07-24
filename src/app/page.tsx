@@ -1,10 +1,11 @@
 "use client";
 
 import { Header } from "@/shared/Header";
-import { BetaTestForm } from "@/widgets/landing/BetaTestForm";
-import { FAQ } from "@/widgets/landing/FAQ";
+import { Advantures } from "@/widgets/landing/advantures/Advantures";
+import { BetaTestForm } from "@/widgets/landing/betaTest/BetaTestForm";
+import { FAQ } from "@/widgets/landing/faq/FAQ";
 import { Main } from "@/widgets/landing/Main";
-import { Reviews } from "@/widgets/landing/Reviews";
+import { Reviews } from "@/widgets/landing/reviews/Reviews";
 import { useEffect, useState } from "react";
 
 export default function Landing () {
@@ -16,12 +17,15 @@ export default function Landing () {
 
     if (isClient) {
         return ( 
-            <div className="px-[38px]">
+            <div className="px-[38px] flex flex-col items-center">
                 <Header />
-                <Main />
-                <Reviews />
-                <FAQ />
-                <BetaTestForm />
+                <div className="max-w-[1260px]">
+                  <Main />
+                  <Advantures />
+                  <Reviews />
+                  <FAQ />
+                  <BetaTestForm />
+                </div>
             </div>
         );
     }

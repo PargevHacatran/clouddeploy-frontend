@@ -13,7 +13,7 @@ interface IFAQAccordion extends IFAQItem {
 export const FAQAccrodion = ({ num, title, description, isOpen, onClick }: IFAQAccordion) => {
     return (
         <div 
-            className={`flex flex-col gap-x-[15px] flex-1 p-[25px] justify-center rounded-[16px] border-1 border-[var(--color-white-12)] ${ isOpen ? "radial-gradient" : "bg-[var(--color-black-amber)]"} w-[1200px] hover:cursor-pointer faq-accordion`}
+            className={`flex flex-col gap-x-[15px] flex-1 p-[25px] justify-center rounded-[16px] border-1 border-[var(--color-white-12)] ${ isOpen ? "radial-gradient" : "bg-[var(--color-black-amber)]"} w-full hover:cursor-pointer faq-accordion`}
             style={{
                 border: isOpen ? "1px solid var(--color-white-10)" : 0,
             }}

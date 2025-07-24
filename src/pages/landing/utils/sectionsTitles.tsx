@@ -12,8 +12,8 @@ export const sectionsTitles = {
     },
     "advantures": {
         suptitle: "Advantures",
-        title: "",
-        subtitle: ""
+        title: "Our best sides",
+        subtitle: "Why choose CloudDeploy for deploy ?"
     },
     "possibilities": {
         suptitle: "Possibilities",
