@@ -7,7 +7,7 @@ interface IReview {
 
 export const Review = ({ imgURL, name, jobTitle, review }: IReview) => {
     return (
-        <div className="border-1 border-[var(--color-white-10)] rounded-[16px] p-[30px] radial-gradient max-w-[400px]">
+        <div className="border-1 border-[var(--color-white-10)] rounded-[16px] p-[30px] radial-gradient flex-1">
             <div className="flex flex-col gap-y-[20px]">
                 <div className="relative w-[64px] h-[64px]">
                     <img
