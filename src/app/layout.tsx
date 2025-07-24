@@ -7,7 +7,7 @@ interface ILandingLayout {
   title: string;
 }
 
-export default function LandingLayout({ children, title }:ILandingLayout) {
+export default function LandingLayout ({ children, title }:ILandingLayout) {
   return (
     <html lang="ru">
       <head>

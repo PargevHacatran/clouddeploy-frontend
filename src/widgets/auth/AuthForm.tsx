@@ -210,7 +210,7 @@ export const AuthForm = () => {
                         }
 
                         <Button
-                            className="py-[13px] px-[120px] bg-[var(--color-white)] text-[var(--color-black)] rounded-[8px]"
+                            className="py-[13px] px-[120px] bg-[var(--color-white)] text-[var(--color-black)] rounded-[8px] mt-[10px]"
                             type="submit"
                             onClick={() => {
                                 handleSubmit();

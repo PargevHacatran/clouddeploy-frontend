@@ -10,7 +10,7 @@ import { PasswordInput } from "@/shared/PasswordInput";
 import { Input } from "@/shared/Input";
 import { AuthCode } from "@/pages/auth/ui/AuthCode";
 
-import Validation from "@/proccesses/auth/Validation";
+import Validation from "@/proccesses/Validation";
 import AuthRequests from "@/proccesses/auth/AuthRequests";
 
 interface ICodeResponse {
