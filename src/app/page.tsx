@@ -1,5 +1,6 @@
 "use client";
 
+import { Footer } from "@/shared/Footer";
 import { Header } from "@/shared/Header";
 import { About } from "@/widgets/landing/about/About";
 import { Advantures } from "@/widgets/landing/advantures/Advantures";
@@ -27,6 +28,7 @@ export default function Landing () {
                   <FAQ />
                   <BetaTestForm />
                 </div>
+                <Footer />
             </div>
         );
     }
