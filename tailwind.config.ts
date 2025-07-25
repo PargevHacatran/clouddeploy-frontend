@@ -22,7 +22,23 @@ const config: Config = {
       },
       backgroundImage: {
         checkbox: "url('/img/checkbox.png')"
-      }
+      },
+      screens: {
+        xxs: "320px", 
+        "2xs": "360px",
+        xs: "400px", 
+        sm: "475px", 
+        md: "640px", 
+        lg: "768px", 
+        xl: "1024px", 
+        "2xl": "1280px",
+        "3xl": "1440px",
+        "4xl": "1600px",
+        "5xl": "1920px",
+        "6xl": "2560px",
+        "7xl": "3200px",
+      },
+
     },
   },
   plugins: [],
