@@ -25,11 +25,11 @@ export const Main = () => {
     }, []);
 
     return (
-        <section className="py-[100px] w-full flex justify-center reverse-radial-gradient rounded-[16px] px-[150px]">
+        <section className="py-[150px] w-full flex justify-center reverse-radial-gradient rounded-[16px] px-[150px]">
             <div className="flex flex-1 justify-between gap-x-[20px] items-center">
                 <div className="flex-1">
                     <p className="text-box-shadow text-gradient text-[17px] leading-[28px] tracking-[-0.2px]">First Deployment Service</p>
-                    <h1 className="text-[86px] flex-1 font-bold text-[var(--color-white)] leading-[110px] tracking-[-3px]">Deploy your services with <span className="text-box-shadow text-gradient">{ runText }</span></h1>
+                    <h1 className="text-[80px] flex-1 font-bold text-[var(--color-white)] leading-[110px] tracking-[-3px]">Deploy your services with <span className="text-box-shadow text-gradient">{ runText }</span></h1>
                     
                     <div className="flex gap-x-[20px] mt-[30px]">
                         <Button

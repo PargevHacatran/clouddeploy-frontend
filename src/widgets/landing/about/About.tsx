@@ -6,7 +6,7 @@ export const About = () => {
     const currentSectionsTitle = sectionsTitles["about"];
     
     return (
-        <section>
+        <section className="py-[50px]">
             <LandingSectionTitle 
                 suptitle={currentSectionsTitle.suptitle}
                 title={currentSectionsTitle.title}

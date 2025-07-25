@@ -78,6 +78,19 @@ button {
   animation: dash 1.5s ease-in-out infinite;
 }
 
+.stack-hover:hover .stack-icon path {
+  fill-opacity: 0.8;
+}
+
+.hidden-scrollbar::-webkit-scrollbar {
+  width: 0px;
+}
+
+.show-possibilties {
+  opacity: 1;
+  transition: opacity 2s ease;
+}
+
 @keyframes rotate {
   100% {
     transform: rotate(360deg);

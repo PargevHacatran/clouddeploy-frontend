@@ -17,8 +17,8 @@ export const sectionsTitles = {
     },
     "possibilities": {
         suptitle: "Possibilities",
-        title: "",
-        subtitle: ""
+        title: "Possibilities of CloudDeploy",
+        subtitle: "What can you doing into our service ?"
     },
     "reviews": {
         suptitle: "Reviews",
