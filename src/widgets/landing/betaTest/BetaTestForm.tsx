@@ -34,13 +34,13 @@ export const BetaTestForm = () => {
                 }) => (
                     <Form
                         onChange={handleChange}
-                        className="flex flex-col gap-[20px]"
+                        className="flex flex-col gap-[20px] max-w-full"
                     >
                         {
                             Array.isArray(betaTestFormInputs) && betaTestFormInputs.map((inputsRowList, rowIndex) => (
                                 <div
                                     key={rowIndex}
-                                    className="flex flex-1 justify-between gap-x-[20px] w-[900px]"
+                                    className="flex flex-1 justify-between gap-x-[20px] w-[900px] max-w-full xxs:flex-col xxs:gap-y-[20px] md:flex-row"
                                 >
                                     {
                                         inputsRowList.map((inputItem, itemIndex) => {

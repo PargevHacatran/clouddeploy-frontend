@@ -11,7 +11,7 @@ export const DowntimeListItem = ({ text }:IDowntimeListItem) => {
                 { icons.checkMark }
             </div>
 
-            <span className="text-[var(--color-white)] text-[17px] leading-[28px] tracking-[-0.2px]">{ text }</span>
+            <span className="text-[var(--color-white)] leading-[28px] tracking-[-0.2px] xxs:text-[14px] md:text-[17px]">{ text }</span>
         </li>
     );
 }
