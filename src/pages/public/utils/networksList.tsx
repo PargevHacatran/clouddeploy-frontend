@@ -1,6 +1,7 @@
 export interface INetworksItem {
     icon: React.ReactNode;
     link: string;
+    className?: string;
 }
 
 export const networksList = [
