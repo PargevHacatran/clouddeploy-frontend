@@ -1,10 +1,14 @@
 import { icons } from "@/pages/public/utils/icons";
 import { Button } from "@/shared/Button";
 
-export const HelpInformationBar = () => {
+interface IHelpInformationBar {
+    className?: string; 
+}
+
+export const HelpInformationBar = ({ className }:IHelpInformationBar) => {
     return (
-        <div className="p-[30px] h-[350px] rounded-[30px] border-1 border-[var(--color-white-5)] flex flex-col justify-between max-w-[320px]">
-            <div>
+        <div className={`p-[30px] h-[350px] rounded-[30px] border-1 border-[var(--color-white-5)] flex flex-col justify-between max-w-[320px] ${ className }`}>
+            <div className="flex flex-col gap-y-[20px]">
                 <div className="relative w-[18px] h-[18px]">
                     { icons.getSupport }
                 </div>
