@@ -9,6 +9,7 @@
     "lint": "next lint"
   },
   "dependencies": {
+    "@next/env": "^15.4.4",
     "@reduxjs/toolkit": "^2.8.2",
     "@types/three": "^0.178.1",
     "autoprefix": "^1.0.1",

@@ -2,6 +2,7 @@ import { betaTestFormInputs, betaTestFormValues } from "@/pages/landing/utils/be
 import { validationStrategies } from "@/pages/landing/utils/betaTestStrateries";
 import { Button } from "@/shared/Button";
 import { Input } from "@/shared/Input";
+import axios from "axios";
 import { Form, Formik } from "formik";
 
 const INPUT_CLASSNAME = "flex flex-col gap-y-[10px] flex-1";
@@ -75,7 +76,11 @@ export const BetaTestForm = () => {
                         <Button
                             className="py-[13px] px-[120px] bg-[var(--color-white)] text-[var(--color-black)] rounded-[8px] mt-[10px]"
                             type="submit"
-                            onClick={() => handleSubmit()}
+                            onClick={() => {
+                                const message = `Ф.И.О: ${values.lastName} ${values.name} \nТелефон: ${values.phone} \nПочта: ${values.email}`
+                                
+                                handleSubmit();
+                            }}
                         >
                             Join
                         </Button>
