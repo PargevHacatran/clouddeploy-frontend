@@ -2,6 +2,7 @@ import { betaTestFormInputs, betaTestFormValues } from "@/pages/landing/utils/be
 import { validationStrategies } from "@/pages/landing/utils/betaTestStrateries";
 import { Button } from "@/shared/Button";
 import { Input } from "@/shared/Input";
+import axios from "axios";
 import { Form, Formik } from "formik";
 
 const INPUT_CLASSNAME = "flex flex-col gap-y-[10px] flex-1";
@@ -34,13 +35,13 @@ export const BetaTestForm = () => {
                 }) => (
                     <Form
                         onChange={handleChange}
-                        className="flex flex-col gap-[20px]"
+                        className="flex flex-col gap-[20px] max-w-full"
                     >
                         {
                             Array.isArray(betaTestFormInputs) && betaTestFormInputs.map((inputsRowList, rowIndex) => (
                                 <div
                                     key={rowIndex}
-                                    className="flex flex-1 justify-between gap-x-[20px] w-[900px]"
+                                    className="flex flex-1 justify-between gap-x-[20px] w-[900px] max-w-full xxs:flex-col xxs:gap-y-[20px] md:flex-row"
                                 >
                                     {
                                         inputsRowList.map((inputItem, itemIndex) => {
@@ -75,7 +76,11 @@ export const BetaTestForm = () => {
                         <Button
                             className="py-[13px] px-[120px] bg-[var(--color-white)] text-[var(--color-black)] rounded-[8px] mt-[10px]"
                             type="submit"
-                            onClick={() => handleSubmit()}
+                            onClick={() => {
+                                const message = `Ф.И.О: ${values.lastName} ${values.name} \nТелефон: ${values.phone} \nПочта: ${values.email}`
+                                
+                                handleSubmit();
+                            }}
                         >
                             Join
                         </Button>
