@@ -7,7 +7,7 @@ export const Possibilities = () => {
     const currentSectionsTitle = sectionsTitles["possibilities"];
     
     return (
-        <section className="py-[50px] w-full flex flex-col items-center">
+        <section className="py-[50px] w-full flex flex-col items-center xxs:px-[10px] xl:px-[50px] xl:max-w-full">
             <LandingSectionTitle 
                 suptitle={currentSectionsTitle.suptitle}
                 title={currentSectionsTitle.title}

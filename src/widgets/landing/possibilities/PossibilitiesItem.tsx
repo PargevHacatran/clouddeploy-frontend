@@ -22,25 +22,25 @@ export const PossibilitiesItem = ({ title, description, imgURL, stack, icon }:IP
     }, [])
     
     return (
-        <div className="flex flex-1 gap-x-[50px]">
-            <div className="ml-[-25px] w-[50px] h-[50px] border-1 border-[var(--main-color)] rounded-[50%] bg-[var(--background)] flex justify-center items-center">
+        <div className="flex flex-1 xxs:gap-x-[20px] xl:gap-x-[30px] 2xl:gap-x-[50px]">
+            <div className="border-1 border-[var(--main-color)] rounded-[50%] bg-[var(--background)] flex justify-center items-center xxs:w-[25px] xxs:h-[25px] xxs:ml-[-12.5px] xl:w-[40px] xl:h-[40px] xl:ml-[-20px] 2xl:ml-[-25px] 2xl:w-[50px] 2xl:h-[50px]">
                 <div 
                     ref={roadmaapPointRef}
-                    className="w-[30px] h-[30px] bg-[var(--main-color)] rounded-[50%] opacity-[0]"
+                    className="w-[30px] h-[30px] bg-[var(--main-color)] rounded-[50%] opacity-[0] xxs:w-[15px] xxs:h-[15px] xl:w-[25px] xl:h-[25px]"
                 >
                 </div>
             </div>
             <div 
-                className="flex flex-1 gap-x-[20px] opacity-20"
+                className="flex flex-1 xxs:gap-x-[20px] opacity-20 2xl:gap-x-[30px]"
                 ref={possibilitiesRef}
             >
                 <div className="flex-1 flex flex-col gap-y-[20px]">
-                    <div className="relative w-[42px] h-[42px]">
+                    <div className="relative xxs:w-[30px] xxs:h-[30px] md:w-[42px] md:h-[42px]">
                         { icon }
                     </div>
                     <div className="flex flex-col gap-y-[17px] ">
-                        <h3 className="text-[35px] leading-[42px] tracking-[-0.3px] font-medium text-[var(--color-white)]">{ title }</h3>
-                        <p className="text-[17px] leading-[28px] tracking-[0.2px] text-[var(--color-white-60)]">{ description }</p>
+                        <h3 className="text-[35px] leading-[42px] tracking-[-0.3px] font-medium text-[var(--color-white)] xxs:text-[28px] md:text-[35px]">{ title }</h3>
+                        <p className="leading-[28px] tracking-[-0.2px] text-[var(--color-white-60)] xxs:text-[14px] md:text-[17px]">{ description }</p>
                     </div>
 
                     <div className="flex gap-[20px] flex-wrap">
@@ -57,11 +57,11 @@ export const PossibilitiesItem = ({ title, description, imgURL, stack, icon }:IP
 
                 </div>
 
-                <div className="flex-1 flex">
+                <div className="flex-1 flex items-center xxs:hidden 2xl:flex">
                     <img 
                         src={imgURL} 
                         alt="" 
-                        className="flex-1"
+                        className="flex-1  max-h-[500px]"
                     />
                 </div>
             </div>

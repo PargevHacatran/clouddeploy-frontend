@@ -3,21 +3,19 @@ import { LandingSectionTitle } from "../LandingSectionTitle";
 import { advanturesList } from "@/pages/landing/utils/advanturesAssets";
 import { AdvantureCart } from "./AdvantureCart";
 import { AdvantureDowntime } from "./AdvantureDowntime";
-import { AdvantureMultiPlatform } from "./AdvantureMultiPlatform";
-import { AdvantureCDN } from "./AdvantureCDN";
 
 export const Advantures = () => {
     const currentSectionTitle = sectionsTitles["advantures"];
     
     return (
-        <section className="py-[50px] flex-1">
+        <section className="py-[50px] flex-1 flex items-center flex-col">
             <LandingSectionTitle 
                 suptitle={currentSectionTitle.suptitle}
                 title={currentSectionTitle.title}
                 subtitle={currentSectionTitle.subtitle}
             />
 
-            <div className="flex justify-center gap-x-[20px] mt-[30px]">
+            <div className="flex justify-center items-center gap-x-[20px] mt-[30px] xxs:flex-col xxs:gap-y-[20px] lg:flex-row">
                 {
                     Array.isArray(advanturesList) && advanturesList.map((advantureItem, itemIndex) => (
                         <AdvantureCart 
@@ -32,12 +30,6 @@ export const Advantures = () => {
 
             <div className="flex justify-center mt-[30px]">
                 <AdvantureDowntime />
-            </div>
-            <div className="flex justify-center mt-[30px]">
-                <div className="flex flex-1 gap-x-[20px]">
-                    <AdvantureMultiPlatform />
-                    <AdvantureCDN />
-                </div>
             </div>
         </section>
     );
