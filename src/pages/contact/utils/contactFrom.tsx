@@ -1,11 +1,6 @@
-export interface IInputItem {
-    labelTitle: string;
-    placeholder: string;
-    name: string;
-    type: string;
-}
+import { IInputItem } from "@/pages/public/utils/formUtils";
 
-export const contactFormInputs:IInputItem[][] = [
+export const contactFormInputs: IInputItem[][] = [
     [
         {
             labelTitle: "First Name",
@@ -54,6 +49,7 @@ export const contactFormInputs:IInputItem[][] = [
             placeholder: "Tell more details about your needs",
             name: "problem",
             type: "text",
+            isMultiline: true
         }
     ]
 ];
@@ -66,4 +62,4 @@ export const contactFormValues = {
     phone: "",
     email: "",
     problem: ""
-}
+};

@@ -1,14 +1,6 @@
 import type { AuthTabsType } from "@/widgets/auth/AuthForm";
-import type { PasswordInputType } from "@/shared/PasswordInput";
-
-import { IAuthCode } from "@/pages/auth/ui/AuthCode";
-import { IInput } from "@/shared/Input";
 
 import { AuthValuesInterfaces } from "@/pages/auth/utils/authForm";
-
-import { PasswordInput } from "@/shared/PasswordInput";
-import { Input } from "@/shared/Input";
-import { AuthCode } from "@/pages/auth/ui/AuthCode";
 
 import Validation from "@/proccesses/Validation";
 import AuthRequests from "@/proccesses/auth/AuthRequests";
@@ -25,12 +17,6 @@ type AuthFormValues = {
 
 type ValidationStrategiesType = {
     [key in AuthTabsType]: (values:AuthFormValues, errors: Record<string, string>) => Record<string, string>;
-}
-
-export type RenderFieldsStrategiesType = {
-    password: (props:PasswordInputType) => React.ReactElement;
-    code: (props:IAuthCode) => React.ReactElement;
-    input: (props:IInput) => React.ReactElement;
 }
 
 export type SendFormStrategiesType = {
@@ -85,46 +71,6 @@ export const validationStrategies: ValidationStrategiesType = {
 
         return errors;
     } 
-};
-
-export const renderFieldsStrategies:RenderFieldsStrategiesType = {
-    password: ({ name, type, labelTitle, placeholder, onChange, titleClassName, areaClassName, className, value, addictionalStyles, visiblePassword }: PasswordInputType) => (
-        <PasswordInput
-            name={name}
-            type={type}
-            labelTitle={labelTitle}
-            titleClassName={titleClassName}
-            areaClassName={areaClassName}
-            placeholder={placeholder}
-            onChange={onChange}
-            visiblePassword={visiblePassword}
-            className={className}
-            value={value}
-            addictionalStyles={addictionalStyles}
-        />
-    ) as React.ReactElement,
-    code: ({ name, value, addictionalStyles, onChange }: IAuthCode) => (
-        <AuthCode
-            name={name}
-            value={value}
-            addictionalStyles={addictionalStyles}
-            onChange={onChange}
-        />
-    ) as React.ReactElement,
-    input: ({ name, type, labelTitle, placeholder, onChange, titleClassName, areaClassName, className, value, addictionalStyles }: IInput) => (
-        <Input
-            name={name}
-            type={type}
-            labelTitle={labelTitle}
-            titleClassName={titleClassName}
-            areaClassName={areaClassName}
-            placeholder={placeholder}
-            onChange={onChange}
-            className={className}
-            value={value}
-            addictionalStyles={addictionalStyles}
-        />
-    ) as React.ReactElement
 };
 
 export const sendFormStrategies:SendFormStrategiesType = {
