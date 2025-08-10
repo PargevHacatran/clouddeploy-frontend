@@ -1,14 +1,14 @@
 import { sectionsTitles } from "@/pages/landing/utils/sectionsTitles";
-import { LandingSectionTitle } from "../LandingSectionTitle";
 import { possibilitiesList } from "@/pages/landing/utils/possibilitiesList";
 import { PossibilitiesItem } from "./PossibilitiesItem";
+import { SectionTitle } from "@/widgets/SectionTitle";
 
 export const Possibilities = () => {
     const currentSectionsTitle = sectionsTitles["possibilities"];
     
     return (
         <section className="py-[50px] w-full flex flex-col items-center xxs:px-[10px] xl:px-[50px] xl:max-w-full">
-            <LandingSectionTitle 
+            <SectionTitle 
                 suptitle={currentSectionsTitle.suptitle}
                 title={currentSectionsTitle.title}
                 subtitle={currentSectionsTitle.subtitle}

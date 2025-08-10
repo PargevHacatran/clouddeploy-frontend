@@ -1,7 +1,7 @@
-export interface ISectionTitlw {
-    suptitle: string,
+export interface ISectionTitle {
+    suptitle?: string,
     title: string,
-    subtitle: string;
+    subtitle?: string;
 }
 
 export const sectionsTitles = {

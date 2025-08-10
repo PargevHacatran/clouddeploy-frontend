@@ -1,8 +1,8 @@
-import { LandingSectionTitle } from "@/widgets/landing/LandingSectionTitle";
 import { faqList } from "@/pages/landing/utils/faqList";
 import { sectionsTitles } from "@/pages/landing/utils/sectionsTitles";
 import { FAQAccrodion } from "./FAQAccrodion";
 import { useState } from "react";
+import { SectionTitle } from "@/widgets/SectionTitle";
 
 export const FAQ = () => {
     const [openAccordionIndex, setOpenAccordionIndex] = useState<number | null>(null);
@@ -20,7 +20,7 @@ export const FAQ = () => {
     
     return (
         <section className="w-full py-[100px]">
-            <LandingSectionTitle 
+            <SectionTitle 
                 suptitle={currentSectionTitle.suptitle}
                 title={currentSectionTitle.title}
                 subtitle={currentSectionTitle.subtitle}

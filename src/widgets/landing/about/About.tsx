@@ -1,14 +1,16 @@
-import { sectionsTitles } from "@/pages/landing/utils/sectionsTitles";
-import { LandingSectionTitle } from "../LandingSectionTitle"
-import { AboutInfo } from "./AboutInfo";
 import Image from "next/image";
+
+import { sectionsTitles } from "@/pages/landing/utils/sectionsTitles";
+
+import { AboutInfo } from "./AboutInfo";
+import { SectionTitle } from "@/widgets/SectionTitle";
 
 export const About = () => {
     const currentSectionsTitle = sectionsTitles["about"];
     
     return (
         <section className="w-full max-w-full py-[50px]">
-            <LandingSectionTitle 
+            <SectionTitle 
                 suptitle={currentSectionsTitle.suptitle}
                 title={currentSectionsTitle.title}
                 subtitle={currentSectionsTitle.subtitle}

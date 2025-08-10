@@ -1,8 +1,8 @@
-// Когда запустимся будем брать с базы данных
-
 import { sectionsTitles } from "@/pages/landing/utils/sectionsTitles";
-import { LandingSectionTitle } from "../LandingSectionTitle";
 import { Review } from "./Review";
+import { SectionTitle } from "@/widgets/SectionTitle";
+
+// Когда запустимся будем брать с базы данных
 
 const reviews = [
     {
@@ -30,7 +30,7 @@ export const Reviews = () => {
     
     return (
         <section className="py-[50px]">
-            <LandingSectionTitle 
+            <SectionTitle 
                 suptitle={currentSectionTitle.suptitle}
                 title={currentSectionTitle.title}
                 subtitle={currentSectionTitle.subtitle}
