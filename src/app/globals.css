@@ -18,6 +18,7 @@
   --foreground: #fff;
 
   --color-grey: #bdbdbd;
+  --color-grey-35: #232323; 
 
   --color-grey-02: #ffffff33;
   --color-white-5: #ffffff0d;
@@ -74,12 +75,20 @@ button {
   background: radial-gradient(circle at 100% 100%, rgba(120, 100, 244, 0.5) 0%, rgba(0, 3, 15, 0) 35%);
 }
 
+.radial-bottom-gradient {
+  background: radial-gradient(50% 50% at 100% 100%, rgba(120, 100, 244, 0.5) 0%, rgba(0, 3, 15, 0) 170%);  
+}
+
 .box-shadow {
   box-shadow: -15px -30px 250px 0 rgba(120, 100, 244, 0.25);
 }
 
 .text-box-shadow {
   text-shadow: 0 4px 18px rgba(120, 100, 244, 0.85);
+}
+
+.marker-box-shadow {
+  box-shadow: 0 5px 15px rgba(120, 100, 244, 0.85);
 }
 
 .password-wrapper:focus-within {
